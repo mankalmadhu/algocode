@@ -8,7 +8,7 @@ public class TestSorting {
 
 	private Integer[] input = new Integer[] { 3, 5, 6, 2, 1 };
 
-	/*@Test
+	@Test
 	public void bubbleSort() {
 		BubbleSort<Integer> sort = new BubbleSort<Integer>(input);
 		sort.sort();
@@ -21,12 +21,20 @@ public class TestSorting {
 		sort.sort();
 		System.out.println(Arrays.toString(input));
 	}
-*/
+
 	@Test
 	public void insertionSort() {
 		InsertionSort<Integer> sort = new InsertionSort<Integer>(input);
 		sort.sort();
 		System.out.println(Arrays.toString(input));
 	}
+	
+	@Test
+	public void shellSort() {
+		ShellSort<Integer> sort = new ShellSort<Integer>(input);
+		sort.sort();
+		System.out.println(Arrays.toString(input));
+	}
+
 
 }
