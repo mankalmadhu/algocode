@@ -20,16 +20,13 @@ public class MergeSortIterative<T extends Comparable<?>> {
 	protected void sort(int low, int high) {
 
 		
-		int mid = 0;
-
-		merge(0, mid, 1);
-		
-		mid=1;
-		merge(0,mid,2);
-		
-		mid=2;
-		merge(0,mid,3);
-
+		for(int n=1;n<elems.length;n=n*2){
+			
+			for(int i=0;i<elems.length-n;i+=n*2){
+				merge(i,i+n-1,Math.min(i+2*n-1, elems.length-1));
+			}
+			
+		}
 	}
 
 	public void sort() {
