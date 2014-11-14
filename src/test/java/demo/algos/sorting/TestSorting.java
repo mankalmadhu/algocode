@@ -5,10 +5,11 @@ import java.util.Arrays;
 import org.junit.Test;
 
 import demo.algos.sorting.merge.MergeSort;
+import demo.algos.sorting.merge.MergeSortIterative;
 
 public class TestSorting {
 
-	private Integer[] input = new Integer[] { 3, 5, 6, 2, 1 };
+	private Integer[] input = new Integer[] { 5, 3, 6, 2, 1 };
 
 	@Test
 	public void bubbleSort() {
@@ -42,6 +43,16 @@ public class TestSorting {
 	public void mergeSort() {
 
 		MergeSort<Integer> sort = new MergeSort<Integer>(input);
+		sort.sort();
+		sort.printResult();
+
+	}
+
+	
+	@Test
+	public void mergeSortIt() {
+
+		MergeSortIterative<Integer> sort = new MergeSortIterative<Integer>(input);
 		sort.sort();
 		sort.printResult();
 

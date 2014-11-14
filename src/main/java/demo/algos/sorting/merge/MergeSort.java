@@ -6,9 +6,9 @@ import demo.algos.sorting.SortUtil;
 
 public class MergeSort<T extends Comparable> {
 
-	protected T[] elems;
+	private T[] elems;
 
-	protected T[] tmp;
+	private T[] tmp;
 
 	public MergeSort(T[] elems) {
 
