@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import demo.algos.sorting.merge.MergeSort;
 import demo.algos.sorting.merge.MergeSortIterative;
+import demo.algos.sorting.quick.QuickSort;
+import demo.algos.sorting.quick.QuickSort3WayPartition;
 
 public class TestSorting {
 
@@ -47,12 +49,29 @@ public class TestSorting {
 		sort.printResult();
 
 	}
-
 	
 	@Test
 	public void mergeSortIt() {
 
 		MergeSortIterative<Integer> sort = new MergeSortIterative<Integer>(input);
+		sort.sort();
+		sort.printResult();
+
+	}
+	
+	@Test
+	public void quickSort() {
+
+		QuickSort<Integer> sort = new QuickSort<Integer>(input);
+		sort.sort();
+		sort.printResult();
+
+	}
+
+	@Test
+	public void quickSort3Way() {
+
+		QuickSort3WayPartition<Integer> sort = new QuickSort3WayPartition<Integer>(input);
 		sort.sort();
 		sort.printResult();
 
