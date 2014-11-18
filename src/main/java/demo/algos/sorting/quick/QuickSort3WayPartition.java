@@ -26,9 +26,12 @@ public class QuickSort3WayPartition<T extends Comparable> {
 			return;
 		}
 
-		int j = partition(low, high);
-		sort(low, j - 1);
-		sort(j + 1, high);
+		Tuple<Integer, Integer> ret = new Tuple<>(low, high);
+
+		partition(ret);
+
+		sort(low, ret.low - 1);
+		sort(ret.high + 1, high);
 
 	}
 
@@ -36,31 +39,42 @@ public class QuickSort3WayPartition<T extends Comparable> {
 		System.out.println(Arrays.toString(elems));
 	}
 
-	protected int partition(int low, int high) {
+	/**
+	 * @param tuple
+	 *            Invariant : During partition the pivot variable always should
+	 *            be at the index if 'pivot'.
+	 */
+	protected void partition(Tuple<Integer, Integer> tuple) {
 
-		int pivot = low;
-		low++;
+		int pivot = tuple.low;
+		tuple.low++;
 
-		while (true) {
+		while (tuple.low <= tuple.high) {
 
-			int compare = elems[pivot].compareTo(elems[low]);
+			int compare = elems[pivot].compareTo(elems[tuple.low]);
 
 			if (compare > 0) {
-
-				SortUtil.exch(elems, low++, pivot++);
+				SortUtil.exch(elems, tuple.low++, pivot++);
 			} else if (compare < 0) {
-				SortUtil.exch(elems, low, high--);
+				SortUtil.exch(elems, tuple.low, tuple.high--);
 			} else {
 				pivot++;
 			}
 
-			if (low > high) {
-				break;
-			}
-
 		}
 
-		return high;
+	}
+
+	private class Tuple<T, U> {
+
+		T low;
+		U high;
+
+		public Tuple(T low, U high) {
+			super();
+			this.low = low;
+			this.high = high;
+		}
 
 	}
 

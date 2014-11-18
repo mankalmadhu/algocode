@@ -44,14 +44,14 @@ public class QuickSort<T extends Comparable> {
 
 		while (true) {
 
-			while (!SortUtil.less(elems[pivot], elems[start])) {
+			while (SortUtil.less(elems[start], elems[pivot])) {
 				start++;
 				if (start == high) {
 					break;
 				}
 			}
 
-			while (!SortUtil.less(elems[end], elems[pivot])) {
+			while (SortUtil.less(elems[pivot], elems[end])) {
 				end--;
 				if (end == low) {
 					break;
@@ -69,5 +69,7 @@ public class QuickSort<T extends Comparable> {
 		return end;
 
 	}
+	
+	
 
 }
