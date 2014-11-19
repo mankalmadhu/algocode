@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import demo.algos.sorting.heap.HeapSort;
 import demo.algos.sorting.merge.MergeSort;
 import demo.algos.sorting.merge.MergeSortIterative;
 import demo.algos.sorting.quick.QuickSort;
@@ -93,6 +94,15 @@ public class TestSorting {
 	public void quickSort3Way() {
 
 		QuickSort3WayPartition<Integer> sort = new QuickSort3WayPartition<Integer>(input);
+		sort.sort();
+		sort.printResult();
+
+	}
+
+	@Test
+	public void heapSort() {
+
+		HeapSort<Integer> sort = new HeapSort<Integer>(input);
 		sort.sort();
 		sort.printResult();
 
