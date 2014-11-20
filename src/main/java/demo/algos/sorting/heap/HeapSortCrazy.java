@@ -2,13 +2,13 @@ package demo.algos.sorting.heap;
 
 import java.util.Arrays;
 
-import demo.datastructures.heap.BinaryHeap;
+import demo.datastructures.heap.BinaryHeapForSort;
 
-public class HeapSort<T extends Comparable> {
+public class HeapSortCrazy<T extends Comparable> {
 
 	private T[] elems;
 
-	public HeapSort(T[] elems) {
+	public HeapSortCrazy(T[] elems) {
 
 		this.elems = elems;
 
@@ -16,11 +16,12 @@ public class HeapSort<T extends Comparable> {
 
 	public void sort() {
 
-		BinaryHeap<T> heap = new BinaryHeap<T>(elems);
+		BinaryHeapForSort<T> heap = new BinaryHeapForSort<T>(elems);
 
 		for (int i = elems.length - 1; i > 0; i--) {
 			elems[i] = heap.getMax();
 		}
+
 	}
 
 	public void printResult() {
