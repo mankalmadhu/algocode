@@ -10,18 +10,20 @@ public class BinaryHeap<T extends Comparable> {
 
 	@SuppressWarnings("unchecked")
 	public BinaryHeap(int capacity) {
+
 		elems = (T[]) new Object[capacity];
 	}
-	
+
 	public BinaryHeap(T[] elems) {
-		this.elems=elems.clone();
-		batchInsert(elems);
+		this.elems = elems;
+		curSize = elems.length;
+		batchInsert();
 	}
 
-	private void batchInsert(T[] bacthInput) {
+	private void batchInsert() {
 
-		for (T elem : bacthInput) {
-			insert(elem);
+		for (int i = curSize / 2; i >= 0; i--) {
+			moveDown(i, curSize);
 		}
 
 	}
@@ -32,13 +34,16 @@ public class BinaryHeap<T extends Comparable> {
 	}
 
 	public T getMax() {
-		SortUtil.exch(elems, 0, curSize);
 
-		T elem = elems[curSize];
+		SortUtil.exch(elems, 0, curSize - 1);
 
-		elems[curSize--] = null;
+		T elem = elems[curSize - 1];
 
-		moveDown();
+		// elems[curSize] = null;
+
+		curSize--;
+
+		moveDown(0, curSize - 1);
 
 		return elem;
 	}
@@ -51,20 +56,23 @@ public class BinaryHeap<T extends Comparable> {
 		}
 	}
 
-	private void moveDown() {
-		int elem = 0;
+	private void moveDown(int elem, int length) {
 
-		while (elem <= elems.length - 1) {
+		while ((length > 0) && (2 * elem <= length)) {
 
-			if (SortUtil.less(elems[2 * elem], elems[elem])
-					&& SortUtil.less(elems[2 * elem + 1], elems[elem])) {
-				break;
+			int child = elem != 0 ? 2 * elem : 1;
+
+			if (child < length && (child + 1 < length)
+					&& (SortUtil.less(elems[child], elems[child + 1]))) {
+				child++;
 			}
 
-			SortUtil.exch(elems, SortUtil.less(elems[2 * elem],
-					elems[2 * elem + 1]) ? 2 * elem + 1 : 2 * elem, elem);
+			if (SortUtil.less(elems[child], elems[elem])) {
+				break;
+			}
+			SortUtil.exch(elems, child, elem);
+			elem = child;
 
 		}
 	}
-
 }
