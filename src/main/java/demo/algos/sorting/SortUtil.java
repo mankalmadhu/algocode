@@ -14,6 +14,11 @@ public class SortUtil {
 		return (c.compare(v, w) < 0);
 	}
 
+	// is v < w ?
+	public static <T extends Comparable> boolean less(T[] a, int i, int j) {
+		return (a[i].compareTo(a[j]) < 0);
+	}
+
 	// exchange a[i] and a[j]
 	public static <T> void exch(T[] a, int i, int j) {
 		T swap = a[i];

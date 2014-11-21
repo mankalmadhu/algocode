@@ -8,22 +8,24 @@ public class HeapSort<T extends Comparable> {
 
 	private T[] elems;
 
+	BinaryHeap<T> heap;
+
 	public HeapSort(T[] elems) {
 
 		this.elems = elems;
+		heap = new BinaryHeap<T>(elems);
 
 	}
 
 	public void sort() {
 
-		BinaryHeap<T> heap = new BinaryHeap<T>(elems);
-
-		for (int i = elems.length - 1; i > 0; i--) {
+		for (int i = elems.length - 1; i >=0; i--) {
 			elems[i] = heap.getMax();
 		}
 	}
 
 	public void printResult() {
+		heap.printResult();
 		System.out.println(Arrays.toString(elems));
 	}
 
