@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import demo.algos.sorting.SortUtil;
 
-public class QuickSort3WayPartition<T extends Comparable> {
+public class QuickSort3WayPartition<T extends Comparable<T>> {
 
 	private T[] elems;
 
@@ -65,12 +65,12 @@ public class QuickSort3WayPartition<T extends Comparable> {
 
 	}
 
-	private class Tuple<T, U> {
+	private class Tuple<V, U> {
 
-		T low;
+		V low;
 		U high;
 
-		public Tuple(T low, U high) {
+		public Tuple(V low, U high) {
 			super();
 			this.low = low;
 			this.high = high;

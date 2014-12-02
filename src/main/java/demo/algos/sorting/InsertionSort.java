@@ -1,6 +1,6 @@
 package demo.algos.sorting;
 
-public class InsertionSort<T extends Comparable> {
+public class InsertionSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

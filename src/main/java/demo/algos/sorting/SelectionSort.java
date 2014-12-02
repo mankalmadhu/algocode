@@ -1,6 +1,6 @@
 package demo.algos.sorting;
 
-public class SelectionSort<T extends Comparable> {
+public class SelectionSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

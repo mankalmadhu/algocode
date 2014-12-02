@@ -1,6 +1,6 @@
 package demo.datastructures.bst;
 
-public class BinarySearchTree<T extends Comparable> {
+public class BinarySearchTree<T extends Comparable<T>> {
 
 	Node root;
 
@@ -101,8 +101,44 @@ public class BinarySearchTree<T extends Comparable> {
 			return -1;
 		}
 
-		return 1+ Math.max(height(x.left), height(x.right));
+		return 1 + Math.max(height(x.left), height(x.right));
 
+	}
+
+	public T floor(T elem) {
+		Node retVal = floor(elem, root);
+
+		if (retVal != null) {
+			return retVal.entity;
+		}
+
+		return null;
+
+	}
+
+	public Node floor(T elem, Node x) {
+		Node retVal = null;
+
+		while (x != null) {
+			int compareVal = elem.compareTo(x.entity);
+
+			if (compareVal == 0) {
+				retVal = x;
+				break;
+			} else if (compareVal < 0) {
+				retVal = floor(elem, x.left);
+			} else {
+				Node rightSideNode = floor(elem, x.right);
+				if (rightSideNode != null) {
+					retVal = rightSideNode;
+				} else {
+					retVal = x;
+				}
+
+			}
+		}
+
+		return retVal;
 	}
 
 	private class Node {

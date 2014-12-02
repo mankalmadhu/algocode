@@ -1,6 +1,6 @@
 package demo.algos.sorting;
 
-public class BubbleSort<T extends Comparable> {
+public class BubbleSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

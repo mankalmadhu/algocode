@@ -5,17 +5,17 @@ import java.util.Comparator;
 public class SortUtil {
 
 	// is v < w ?
-	public static <T extends Comparable> boolean less(T v, T w) {
+	public static <T extends Comparable<T>> boolean less(T v, T w) {
 		return (v.compareTo(w) < 0);
 	}
 
 	// is v < w ?
-	public static <T extends Comparator> boolean less(T c, Object v, Object w) {
+	public static <T extends Comparator<T>> boolean less(T c, T v, T w) {
 		return (c.compare(v, w) < 0);
 	}
 
 	// is v < w ?
-	public static <T extends Comparable> boolean less(T[] a, int i, int j) {
+	public static <T extends Comparable<T>> boolean less(T[] a, int i, int j) {
 		return (a[i].compareTo(a[j]) < 0);
 	}
 

@@ -2,7 +2,7 @@ package demo.datastructures.heap;
 
 import demo.algos.sorting.SortUtil;
 
-public class BinaryHeapForSort<T extends Comparable> {
+public class BinaryHeapForSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

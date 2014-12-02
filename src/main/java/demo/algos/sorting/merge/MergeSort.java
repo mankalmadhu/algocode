@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import demo.algos.sorting.SortUtil;
 
-public class MergeSort<T extends Comparable> {
+public class MergeSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

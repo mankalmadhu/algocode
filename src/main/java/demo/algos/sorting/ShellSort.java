@@ -1,6 +1,6 @@
 package demo.algos.sorting;
 
-public class ShellSort<T extends Comparable> {
+public class ShellSort<T extends Comparable<T>> {
 
 	private T[] elems;
 

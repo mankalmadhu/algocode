@@ -4,12 +4,13 @@ import java.util.Arrays;
 
 import demo.algos.sorting.SortUtil;
 
-public class BinaryHeap<T extends Comparable> {
+public class BinaryHeap<T extends Comparable<T>> {
 
 	private T[] elems;
 
 	private int curEnd;
 
+	@SuppressWarnings("unchecked")
 	public BinaryHeap(T[] input) {
 		elems = (T[]) new Comparable[input.length + 1];
 		batchInsert(input);

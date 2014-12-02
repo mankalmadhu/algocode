@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import demo.datastructures.heap.BinaryHeap;
 
-public class HeapSort<T extends Comparable> {
+public class HeapSort<T extends Comparable<T>> {
 
 	private T[] elems;
 
