@@ -151,9 +151,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			x = x.right;
 		}
 	}
-	
-	
-	
+
 	public T min() {
 
 		Node x = root;
@@ -164,7 +162,6 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			x = x.left;
 		}
 	}
-
 
 	public int rank(T elem) {
 		return rank(elem, root);
@@ -180,6 +177,29 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			return rank(elem, x.left);
 		} else {
 			return 1 + size(x.left) + rank(elem, x.right);
+		}
+
+	}
+
+	/**
+	 * Kth minimum element
+	 * @param k
+	 * @return
+	 */
+	public T select(int k) {
+		return select(k, root);
+	}
+
+	private T select(int k, Node x) {
+
+		int leftSubTreeNodes = x.left.count;
+
+		if (leftSubTreeNodes > k) {
+			return select(k, x.left);
+		} else if (leftSubTreeNodes < k) {
+			return select(k - leftSubTreeNodes - 1, x.right);
+		} else {
+			return x.entity;
 		}
 
 	}
@@ -215,6 +235,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		System.out.println(bt.height());
 		System.out.println(bt.max());
 		System.out.println(bt.min());
+		System.out.println(bt.select(5));
 
 	}
 }
