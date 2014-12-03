@@ -141,6 +141,49 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return retVal;
 	}
 
+	public T max() {
+
+		Node x = root;
+		while (true) {
+			if (x.right == null) {
+				return x.entity;
+			}
+			x = x.right;
+		}
+	}
+	
+	
+	
+	public T min() {
+
+		Node x = root;
+		while (true) {
+			if (x.left == null) {
+				return x.entity;
+			}
+			x = x.left;
+		}
+	}
+
+
+	public int rank(T elem) {
+		return rank(elem, root);
+	}
+
+	private int rank(T elem, Node x) {
+
+		int compareVal = elem.compareTo(x.entity);
+
+		if (compareVal == 0) {
+			return size(x.left);
+		} else if (compareVal < 0) {
+			return rank(elem, x.left);
+		} else {
+			return 1 + size(x.left) + rank(elem, x.right);
+		}
+
+	}
+
 	private class Node {
 
 		T entity;
@@ -170,6 +213,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		}
 
 		System.out.println(bt.height());
+		System.out.println(bt.max());
+		System.out.println(bt.min());
 
 	}
 }
