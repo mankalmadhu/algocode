@@ -317,7 +317,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 
 	}
 
-	private class Node {
+	protected class Node {
 
 		T entity;
 
@@ -326,6 +326,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		Node right;
 
 		int count;
+		
+		boolean isRed=false;
 
 		@Override
 		public String toString() {
