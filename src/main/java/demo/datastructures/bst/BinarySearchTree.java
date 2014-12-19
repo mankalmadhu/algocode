@@ -86,7 +86,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		return size(root);
 	}
 
-	private int size(Node x) {
+	protected int size(Node x) {
 		int size = 0;
 		if (x != null) {
 			size = x.count;
