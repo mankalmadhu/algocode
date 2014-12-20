@@ -1,9 +1,8 @@
 package demo.datastructures.bst;
 
-
 public class RedBlackBst<T extends Comparable<T>> extends BinarySearchTree<T> {
 
-	private Node put(T elem, Node x) {
+	protected Node put(T elem, Node x) {
 
 		if (x == null) {
 			x = new Node();
@@ -43,25 +42,23 @@ public class RedBlackBst<T extends Comparable<T>> extends BinarySearchTree<T> {
 	/**
 	 * @param x
 	 * 
-	 *            1) Store cur nodes right node in temp.
+	 *            1) Store x.right in 't'.(This would become local root at end
+	 *            of operation).
 	 * 
-	 *            2) Detach left children from right node and attach it as
-	 *            current nodes right node. (this between link in 2 node).
+	 *            2) Detach t.left and attach to x.right.
 	 * 
-	 *            3) Set original nodes right child to have original node as
-	 *            left child.
+	 *            3) Make x t.left.(The flip happens).
 	 * 
-	 *            4) Original nodes right child should have same color as
-	 *            original node.
+	 *            4) Copy color of t.left to t(t.left is original passed in node
 	 * 
-	 *            5) Original node should be red. (left leaning).
+	 *            5) 'x' (original passed in node) should be red.
 	 * 
 	 */
 	private Node turnLeft(Node x) {
 		Node t = x.right;
 		x.right = t.left;
 		t.left = x;
-		t.isRed = x.isRed;
+		t.isRed = t.left.isRed;
 		x.isRed = true;
 
 		return t;
