@@ -25,6 +25,7 @@ public class LinearProbingHashST<Key, Value> {
 	}
 
 	// create linear proving hash table of given capacity
+	@SuppressWarnings("unchecked")
 	public LinearProbingHashST(int capacity) {
 		M = capacity;
 		keys = (Key[]) new Object[M];

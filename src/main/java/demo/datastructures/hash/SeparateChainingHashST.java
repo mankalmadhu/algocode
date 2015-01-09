@@ -32,7 +32,8 @@ public class SeparateChainingHashST<Key, Value> {
     } 
 
     // create separate chaining hash table with M lists
-    public SeparateChainingHashST(int M) {
+    @SuppressWarnings("unchecked")
+	public SeparateChainingHashST(int M) {
         this.M = M;
         st = (SequentialSearchST<Key, Value>[]) new SequentialSearchST[M];
         for (int i = 0; i < M; i++)
