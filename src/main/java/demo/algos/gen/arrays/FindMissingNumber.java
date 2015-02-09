@@ -27,6 +27,12 @@ public class FindMissingNumber {
 		System.out.println("Missing Number is:" + sumN);
 	}
 
+	/**
+	 * XORing sets the same number results in '0'. So the remaining is the
+	 * missing number.
+	 * 
+	 * @param input
+	 */
 	private void findMissingNumber1(Integer[] input) {
 
 		int xor1 = 0;
@@ -35,12 +41,12 @@ public class FindMissingNumber {
 			xor1 ^= i;
 		}
 
-		int xor2=0;
-		
-		for(Integer i:input){
-			xor2 ^=i;
+		int xor2 = 0;
+
+		for (Integer i : input) {
+			xor2 ^= i;
 		}
-		
+
 		System.out.println("Missing Number is:" + (xor1 ^ xor2));
 	}
 
