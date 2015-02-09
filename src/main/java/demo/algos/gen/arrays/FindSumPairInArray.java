@@ -1,6 +1,6 @@
 package demo.algos.gen.arrays;
 
-import java.util.Arrays;
+import demo.algos.sorting.quick.QuickSort;
 
 /**
  * @author mahobalan
@@ -19,7 +19,8 @@ public class FindSumPairInArray {
 
 	private void findSumPair(Integer[] input, int sum) {
 
-		Arrays.sort(input);
+		QuickSort<Integer> sort = new QuickSort<Integer>(input);
+		sort.sort();
 
 		int low = 0;
 		int high = input.length - 1;
