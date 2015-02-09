@@ -58,7 +58,7 @@ public class QuickSort<T extends Comparable<T>> {
 				}
 			}
 
-			if (start > end) {
+			if (start >= end) {
 				break;
 			}
 
