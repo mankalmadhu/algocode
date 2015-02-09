@@ -15,7 +15,7 @@ import demo.algos.sorting.quick.QuickSortIterative;
 
 public class TestSorting {
 
-	private Integer[] input = new Integer[] { 5, 3, 6, 2, 1 };
+	private Integer[] input = new Integer[] {5, 3, 6, 2, 1};
 
 	@Test
 	public void bubbleSort() {
